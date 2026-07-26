@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do List</title>
+    <!-- <link rel="stylesheet" href="style.css" /> -->
+  </head>
+  <body style="position: relative; min-height: 100vh;">
+    <header class="header">
+        <div style="padding: 10px; cursor: pointer;" onclick="home()">
+    <img src="./src/assets/logo.svg" alt="Logo" height="50" width="50"/>
+</div>
+<div style="padding: 10px;cursor: pointer;" onclick="alert('Sarah')">
+    <img src="./src/assets/light.svg" alt="Logo" height="30" width="30"/>
+</div>
+</header>
+<main class="container">
+    <div class="head">
+        <img src="./src/assets/list.svg" alt="List" width="40" height="40"/>
+        <h2>To-Do List</h2>
+    </div>
+    <form id="todoForm" class="add">
+    <div class="left">
+        <input id="task" placeholder="add your task here">
+    <button id="addTask">Add to list</button>
+    </div>
+    <button class="right" id="clear" disabled="false" >Clear All</button>
+</form>
+   <ul class="list" id="todoList">
+   </ul>
+</main>
+<footer>
+    <div style="justify-content: center;align-items: center;">Designed and developed by Sara © 2026</div>
+</footer>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

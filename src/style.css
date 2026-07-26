@@ -1,0 +1,242 @@
+
+:root {
+    --primary: #3b82f6;
+    --danger: #ef4444;
+    --success: #22c55e;
+    --background: aliceblue;
+    --card: #ffffff;
+    --text: #333333;
+       --footer-height: 60px;
+}
+@media (max-width: 768px) {
+    form.add{
+        flex-direction: column;
+        align-items: end;
+    }
+    form.add > .left{
+        width: 100%;
+        display: flex;
+        align-items: baseline;
+        gap: 10px;
+    }
+    form.add > .left > input{
+        flex: 10;
+    }
+    form.add > .right{
+       flex:2;  
+        margin-top: 10px;
+    }
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--background);
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100dvh;
+    position: relative;
+}
+img {
+    display: block;
+    max-width: 100%;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+ul,
+ol {
+    list-style: none;
+}
+input {
+    font: inherit;
+    outline: none;
+    border: none;
+}
+button{
+    background: none;
+border: none;
+padding: 0;
+margin: 0;
+font: inherit;
+color: inherit;
+appearance: none;
+}
+button,
+input,
+a {
+    transition: s;
+}
+button,
+input {
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.header{
+    display: flex; 
+    height: 100px; 
+    width: 100%;
+    padding: 5px 25px;
+    border-bottom:25px solid #1c60cf10; 
+    justify-content: space-between;
+     align-items: center;
+}
+.add{margin-top: 30px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+.add button{
+border: 1px solid #21457421;
+    padding: 10px 12px;
+     border-radius: 10px;
+    color:white;
+    /* width: 110px; */
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.add > .left > button{
+    margin-top: 10px;
+    background-color: #104fa1f0;
+   
+}
+.add .left button:hover{
+   opacity: 0.8;
+}
+.add > .left >input{
+    width: 300px;
+    border:1px solid #eceaea;
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+button.right{
+    /* background-color: rgb(191, 0, 0); */
+    background-color: transparent;
+    border:1px solid #9e00008a;
+    display: block;
+    color:rgb(172, 43, 43);;
+}
+button.right:hover{
+    background-color: rgb(191, 0, 0);
+    color:white;
+}
+button.disabled {
+    display: none;
+}
+.container{
+    flex:1;
+    margin-bottom: 30px;
+     border-radius: 10px; 
+     margin:10px auto; 
+     padding-bottom: 30px;
+     width: 70%;
+     background-color: white;
+      padding: 30px;
+    display: block;
+    min-height: 200px;
+    padding-bottom: var(--footer-height);
+}
+.head{
+    width:100%;
+    margin: auto;
+    border-radius: 10px;
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+}
+.head>h2{
+width: auto;
+margin-left: 15px;
+color:#434343;
+}
+ul{
+    min-height: 200px;
+    max-height:300px;
+    overflow-y: auto;
+     scrollbar-width: thin;
+    scrollbar-color: #555 transparent;
+    padding: 10px;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+ul.empty{
+    justify-content: center;
+}
+ul::-webkit-scrollbar {
+    width: 6px;
+}
+
+ul::-webkit-scrollbar-thumb {
+    background-color: #555;
+    border-radius: 10px;
+}
+
+ul::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+ul .message{
+    width: 100%;
+    text-align: center;
+    font-size: 25px;
+    color:#a4a4a481;
+    padding: 0 10px;
+    /* transform: translateY(-50%); */
+}
+ul > li{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 1px solid #b9b9b925;
+}
+ul > li > div{
+    padding: 5px;
+}
+ul > li > div > *{
+    margin-right: 15px;
+}
+ul > li > div > button{
+    all:unset;
+    text-align: center;
+    width: 22px;
+    margin: 0 5px;
+    cursor: pointer;
+    border-color:#abacae;
+    border-radius: 5px;
+    padding: 5px;
+    font-weight: 700;
+    
+}
+.delBtn{
+    color:rgb(172, 43, 43);
+}
+.editBtn{
+    color:rgb(54, 186, 124);
+}
+footer{
+    position: relative;
+    /* position: absolute; 
+    bottom: 0;
+    left: 0;
+    right: 0;  */
+    bottom: 0;
+    display: flex; 
+    justify-content: center;
+    align-items: center; 
+    background-color: #1c60cf20;
+    width: 100%;
+    padding: 30pxss;
+       height: var(--footer-height);
+}
