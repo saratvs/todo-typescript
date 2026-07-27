@@ -59,6 +59,13 @@ input {
     outline: none;
     border: none;
 }
+input[type="checkbox"]{
+    display: inline-block !important;
+    appearance: auto !important;
+    opacity: 1 !important;
+    width: 15px;
+    height: 15px;
+}
 button{
     background: none;
 border: none;

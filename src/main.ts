@@ -6,7 +6,7 @@ import {createIcons,Trash2,Pencil} from "lucide";
 interface Todo{
   id:number,
   text:string,
-  isCompleted:false
+  isCompleted:boolean
 }
 
 //#region  assigned html elements
@@ -28,6 +28,7 @@ let delBtn;
 let editBtn;
 let message;
 //#endregion
+
 
 
 let todos:Todo[] = getFromStorage();
@@ -77,6 +78,13 @@ function editTask(id:number):void{
     renderTodos();
   }
 }
+function completeTask(id:number):void{
+  const todo = todos.find((todo) => todo.id == id);
+  todo!.isCompleted = !todo!.isCompleted;
+  setToStorage(todos);
+    renderTodos();
+}
+
 
 function clearAll() {
   const result = confirm("Are you sure about clearing the whole list?");
@@ -121,6 +129,7 @@ else {
     checkbox = document.createElement("input");
     checkbox.type = "checkbox";
     checkbox.checked = todo.isCompleted;
+    checkbox.addEventListener("change",()=>completeTask(todo!.id));
 
     span = document.createElement("span");
     span.textContent = todo.text;
