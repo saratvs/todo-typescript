@@ -19,13 +19,6 @@ clearBtn!.addEventListener("click", clearAll);
 
 
 //#region created html elements
-let li;
-let title;
-let edition;
-let checkbox;
-let span;
-let delBtn;
-let editBtn;
 let message;
 //#endregion
 
@@ -39,7 +32,7 @@ init();
 // #region  functions for adding, editing and deleting tasks;
 function addTask(e:SubmitEvent):void{
   e.preventDefault();
-const text = input!.value.trim();
+const text = input!.value.trim().toUpperCase();
   if (!text) return;
 
   if (todos.find(todo => todo.text === text)) {
@@ -122,33 +115,30 @@ else {
   }
 
   todos.forEach((todo) => {
-    li = document.createElement("li");
-    title = document.createElement("div");
-    edition = document.createElement("div");
+    const li = document.createElement("li");
+    li.dataset.id = todo.id.toString();
 
-    checkbox = document.createElement("input");
+    const title = document.createElement("div");
+    const edition = document.createElement("div");
+
+    const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
     checkbox.checked = todo.isCompleted;
-    checkbox.addEventListener("change",()=>completeTask(todo!.id));
 
-    span = document.createElement("span");
+    const span = document.createElement("span");
     span.textContent = todo.text;
 
-    delBtn = document.createElement("button");
+    const delBtn = document.createElement("button");
     delBtn.innerHTML = `
   <i data-lucide="trash2"></i>
 `;
     delBtn.className = "delBtn";
-    delBtn.addEventListener("click", () => deleteTask(todo!.id));
 
-    editBtn = document.createElement("button");
-    // editBtn.textContent = "Edit";
+    const editBtn = document.createElement("button");
     editBtn.innerHTML = `
   <i data-lucide="pencil"></i>
 `;
     editBtn.className = "editBtn";
-
-    editBtn.addEventListener("click", () => editTask(todo.id));
 
     title.appendChild(checkbox);
     title.appendChild(span);
@@ -170,6 +160,39 @@ else {
 })
 
 }
+
+todoList!.addEventListener("click",handleClick);
+todoList!.addEventListener("change",handleChange);
+
+function handleClick(e:MouseEvent){
+const target=e.target as HTMLElement;
+const li=target.closest("li");
+
+const id= Number(li?.dataset.id);
+
+if(target.closest(".delBtn")){
+  deleteTask(id);
+}
+if(target.closest(".editBtn")){
+  editTask(id)
+}
+
+}
+
+
+function handleChange(e:Event){
+const target = e.target as HTMLElement;
+
+ if (!target.matches('input[type="checkbox"]')) return;
+
+const li = target.closest("li");
+if(!li) return;
+
+const id=Number(li.dataset.id);
+completeTask(id);
+
+}
+
 function init(){
 todos = getFromStorage();
 renderTodos();
