@@ -1,6 +1,9 @@
+**#Revised Version**
+- By Event Delegation I made the code more and more readable and also optimized
+
 # Todo App
 
-A simple Todo application built with TypeScript.
+A simple Todo application built with TypeScript. 
 
 ## Features
 
